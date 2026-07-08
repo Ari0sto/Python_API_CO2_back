@@ -2,11 +2,13 @@ import os
 from flask import Flask, jsonify, request
 import requests
 from dotenv import load_dotenv
+from flask_cors import CORS
 
 # Загрузка ключа из файла .env
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
 app.json.ensure_ascii = False
 
 EIA_API_KEY = os.environ.get("EIA_API_KEY")
